@@ -20,6 +20,35 @@ public class Student {
         }
     }
 
+    //Getter firstName
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    //Setter firstName
+    public void setFirstName(String newFirstName) {
+        this.firstName = newFirstName;
+    }
+
+    //Getter lastName
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    //Setter lastName
+    public void setLastName(String newLastName) {
+        this.lastName = newLastName;
+    }
+
+    //Getter for Numbers of exams taken
+    public Integer getNumberOfExamsTaken() {
+        int numOfExams = 0;
+        for (Double exam: this.examScores){
+            numOfExams++;
+        }
+        return numOfExams;
+    }
+
     public void display(){
         System.out.println(this.firstName);
         System.out.println(this.lastName);
@@ -33,6 +62,7 @@ public class Student {
         Double[] scores = { 100.0, 95.0, 123.0, 96.0 };
         Student test = new Student("Daniel", "Fuentes", scores);
 
-        test.display();
+        System.out.println(test.getNumberOfExamsTaken());
+
     }
 }
