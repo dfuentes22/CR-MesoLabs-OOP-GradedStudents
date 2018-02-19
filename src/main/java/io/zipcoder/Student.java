@@ -83,26 +83,14 @@ public class Student {
     }
 
     //override toString()
+    @Override
     public String toString(){
         String student = "Student Name: " + this.firstName + " " + this.lastName + "\n"
                 + "Average Score: " + this.getAverageExamScore() + "\n"
-                + "Exam Scores:" + this.firstName + " " + this.lastName + "\n\t";
-        Integer count = 1;
-        for (int i = 0; i < this.examScores.size(); i++){
-            student += "Exam " + count + " -> " + this.examScores.get(i) + "\n\t";
-            count++;
-        }
+                + this.getExamScores();
         return student;
     }
 
-    //display all info method
-    public void display(){
-        System.out.println(this.firstName);
-        System.out.println(this.lastName);
-        for(Double item : this.examScores){
-            System.out.println(item);
-        }
-    }
 
     public static void main(String []args) {
         // Create Student object
