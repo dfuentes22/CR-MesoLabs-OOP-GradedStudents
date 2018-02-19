@@ -40,7 +40,7 @@ public class Student {
         this.lastName = newLastName;
     }
 
-    //Getter for Numbers of exams taken
+    //Getter for Number of exams taken
     public Integer getNumberOfExamsTaken() {
         int numOfExams = 0;
         for (Double exam: this.examScores){
@@ -48,6 +48,18 @@ public class Student {
         }
         return numOfExams;
     }
+
+    //Getter for all exam scores
+    public String getExamScores() {
+        String scores = "Exam Scores: \n\t";
+        Integer count = 1;
+        for (int i = 0; i < this.examScores.size(); i++){
+            scores += "Exam " + count + " -> " + this.examScores.get(i) + "\n\t";
+            count++;
+        }
+        return scores;
+    }
+
 
     public void display(){
         System.out.println(this.firstName);
@@ -62,7 +74,7 @@ public class Student {
         Double[] scores = { 100.0, 95.0, 123.0, 96.0 };
         Student test = new Student("Daniel", "Fuentes", scores);
 
-        System.out.println(test.getNumberOfExamsTaken());
+        System.out.println(test.getExamScores());
 
     }
 }
