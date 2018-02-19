@@ -71,7 +71,31 @@ public class Student {
         this.examScores.set(minusindex, newScore);
     }
 
+    //get average exam score
+    public Double getAverageExamScore(){
+        Double sum = 0.0;
+        for(Double d : this.examScores){
+            sum += d;
+        }
+        Double avg = sum / this.examScores.size();
 
+        return avg;
+    }
+
+    //override toString()
+    public String toString(){
+        String student = "Student Name: " + this.firstName + " " + this.lastName + "\n"
+                + "Average Score: " + this.getAverageExamScore() + "\n"
+                + "Exam Scores:" + this.firstName + " " + this.lastName + "\n\t";
+        Integer count = 1;
+        for (int i = 0; i < this.examScores.size(); i++){
+            student += "Exam " + count + " -> " + this.examScores.get(i) + "\n\t";
+            count++;
+        }
+        return student;
+    }
+
+    //display all info method
     public void display(){
         System.out.println(this.firstName);
         System.out.println(this.lastName);
@@ -82,12 +106,16 @@ public class Student {
 
     public static void main(String []args) {
         // Create Student object
-        Double[] scores = {100.0};
-        Student test = new Student("Daniel", "Fuentes", scores);
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
 
-        System.out.println(test.getExamScores());
-        test.setExamScore(1, 150.0);
-        System.out.println(test.getExamScores());
+        // When
+        String output = student.toString();
+
+        // Then
+        System.out.println(output);
 
     }
 }
