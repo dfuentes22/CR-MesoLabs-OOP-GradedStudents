@@ -49,7 +49,7 @@ public class Student {
         return numOfExams;
     }
 
-    //Getter for all exam scores
+    //display all exam scores
     public String getExamScores() {
         String scores = "Exam Scores: \n\t";
         Integer count = 1;
@@ -58,6 +58,17 @@ public class Student {
             count++;
         }
         return scores;
+    }
+
+    //add an Exam Score
+    public void addExamScore(Double examScore){
+        this.examScores.add(examScore);
+    }
+
+    //update an exam score
+    public void setExamScore(Integer examNumber, Double newScore){
+        int minusindex = examNumber - 1;
+        this.examScores.set(minusindex, newScore);
     }
 
 
@@ -71,9 +82,11 @@ public class Student {
 
     public static void main(String []args) {
         // Create Student object
-        Double[] scores = { 100.0, 95.0, 123.0, 96.0 };
+        Double[] scores = {100.0};
         Student test = new Student("Daniel", "Fuentes", scores);
 
+        System.out.println(test.getExamScores());
+        test.setExamScore(1, 150.0);
         System.out.println(test.getExamScores());
 
     }
